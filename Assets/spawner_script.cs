@@ -6,20 +6,24 @@ public class spawner_script : MonoBehaviour
     private float timer=0;
     public float offset=10;
     public int player_score;
+    public locigic_script logic;
     void Start()
     {
+        logic=GameObject.FindGameObjectWithTag("logic").GetComponent<locigic_script>();
         spwan_pipes();
     }
     void Update()
     {
-        if (timer < spawn_rate)
-        {
-            timer+=Time.deltaTime;
-        }
-        else
-        {
-            spwan_pipes();
-            timer=0;
+        if (logic.bird_state){
+            if (timer<spawn_rate)
+            {
+                timer+=Time.deltaTime;
+            }
+            else
+            {
+                spwan_pipes();
+                timer=0;
+            }
         }
     }
     void spwan_pipes()

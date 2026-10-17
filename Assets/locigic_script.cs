@@ -6,10 +6,13 @@ public class locigic_script : MonoBehaviour
     public int player_score;
     public Text score_text;
     public GameObject gameover_screen;
+    public pipe_script pipes;
+    public bool bird_state;
     [ContextMenu("increase THE score")]
     public void Start()
     {
-       
+       pipes=GetComponent<pipe_script>();
+       bird_state=true;
     }
     public void Update()
     {
@@ -22,10 +25,12 @@ public class locigic_script : MonoBehaviour
     }
     public void restart_game()
     {
+        bird_state=true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void game_over()
     {
+        bird_state=false;
         gameover_screen.SetActive(true);
     }
 }

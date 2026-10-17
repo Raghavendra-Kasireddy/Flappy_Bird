@@ -23,8 +23,7 @@ public class Birdscript : MonoBehaviour
         {
             bird_state=false;
             logic.game_over();
-        }
-        
+        }  
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
