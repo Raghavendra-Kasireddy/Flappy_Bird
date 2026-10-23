@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class pipe_script : MonoBehaviour
 {
-    public float movespeed=5;
+    public float movespeed=5f;
     private float deadzone=-40;
     public locigic_script logic;
     void Start()
     {
         logic=GameObject.FindGameObjectWithTag("logic").GetComponent<locigic_script>();
+        movespeed = (logic.player_score > 5) ? 15f : 5f;
     }
     void Update()
     {
@@ -20,7 +21,7 @@ public class pipe_script : MonoBehaviour
         }
         if (logic.player_score>5)
         {
-            movespeed=15;
+            movespeed=15f;
             Debug.Log(movespeed);
         }
     }
